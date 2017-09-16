@@ -12,7 +12,7 @@ def sum_squares(array)
     else
         puts "Objeto Vacio"
     end
-end
+end 
 
 CCRIPT = Hash["A" => 0, "B" => 1, 
 "C" => 2, "D" => 3,
