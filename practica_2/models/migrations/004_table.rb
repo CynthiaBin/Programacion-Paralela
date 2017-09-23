@@ -4,11 +4,11 @@ Sequel.extension :migration
 
 Sequel.migration do
   up do
-    create_table(:users) do
+    create_table(:table) do
       primary_key :id
       varchar :alias
-      varchar :userName
-      varchar :email
+      varchar :name
+      varchar :link
     end
   end
   down do
