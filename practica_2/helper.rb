@@ -1,21 +1,21 @@
 require 'yaml'
-
-
+# Help
 class Helper
 
-    dbLink = YAML.load(File.open('.\config\config.yml'))
+    
     
     def self.constructURL()
-        url =   dbLink['adapter']
+        dbLink = YAML.load(File.open('.\config\config.yml'))
+
+        url =   (dbLink['adapter']
                 + "://"
                 + dbLink['user']
-                + ":" 
-                + dbLink['password']
-                + "@" 
+                + ":@" 
                 + dbLink['host']
                 + ":" 
                 + dbLink['port'].to_s 
                 + "/" 
-                + dbLink['database']
+                + dbLink['database'])
+        puts"#{url}"
     end 
 end

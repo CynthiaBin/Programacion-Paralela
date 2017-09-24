@@ -4,7 +4,7 @@ Sequel.extension :migration
 
 Sequel.migration do
   up do
-    create_table(:table) do
+    create_table(:tabla) do
       primary_key :id
       varchar :alias
       varchar :name
@@ -12,6 +12,6 @@ Sequel.migration do
     end
   end
   down do
-    drop_table(:users)
+    drop_table(:tabla)
   end
 end

@@ -3,7 +3,6 @@
   adapter: postgres
   host: localhost
   user: postgres
-  password: Scotty
   port: 5432
 
 
