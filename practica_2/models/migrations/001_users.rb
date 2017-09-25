@@ -6,7 +6,7 @@ Sequel.migration do
   up do
     create_table(:users) do
       primary_key :id
-      varchar :alias
+      varchar :name
       varchar :userName
       varchar :email
     end

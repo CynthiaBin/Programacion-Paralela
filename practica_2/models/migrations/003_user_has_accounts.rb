@@ -14,6 +14,7 @@ Sequel.migration do
     end
   end
 
+
   down do
     drop_table(:users)
   end

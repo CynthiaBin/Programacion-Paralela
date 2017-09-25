@@ -6,7 +6,6 @@ Sequel.migration do
   up do
     create_table(:sites) do
       primary_key :id
-      varchar :alias
       varchar :name
       varchar :url
     end

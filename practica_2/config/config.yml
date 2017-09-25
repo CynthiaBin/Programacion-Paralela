@@ -1,9 +1,0 @@
-
-  database: test
-  adapter: postgres
-  host: localhost
-  user: postgres
-  port: 5432
-
-
-

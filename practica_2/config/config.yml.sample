@@ -1,0 +1,4 @@
+database: database_name
+adapter: postgres
+host: localhost
+user: user
