@@ -15,18 +15,11 @@ class Auth
 
   def validate
     user = User.new
-    puts user
     site = Site.new
-    puts site
     user_accounts = Authentication.new
-    puts user_accounts
 
     user_info = user.by_name(@name)
-    puts user_info
     site = site.by_name(@site_name)
-    puts site
-    puts user_info[:id]
-    puts  site[:id]
     account = user_accounts.account(user_info[:id], site[:id])
 
     ex = Ant::Exceptions::AntFail.new(
@@ -36,7 +29,7 @@ class Auth
     raise(ex) unless validate_password(account[:salt], account[:password])
 
     config = YAML.safe_load(File.open('./config/config.yml'))
-   
+
     {
       token: JWT.encode(user_info[:id], config['secret_key'], 'HS256')
     }
