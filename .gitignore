@@ -2,3 +2,4 @@
 .yardoc
 doc
 config.yml
+application.log

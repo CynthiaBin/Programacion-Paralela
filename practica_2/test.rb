@@ -17,6 +17,14 @@ def test_model(tested_class, data)
   t.id
 end
 
-u_id = test_model(User, ['juan perez', 'test', 'juanito@udg.mx'])
-s_id = test_model(Site, ['cutonala', 'cutonala.udg.mx'])
+def test_query(tested_class, data)
+  t = tested_class.new(*data)
+  print t.users_in_site().to_s
+end
+
+
+u_id = test_model(User, ['Cynthia', 'test', 'pez@bincat.mx'])
+s_id = test_model(Site, ['bincat','bincat.me'])
 test_model(Authentication, [u_id, s_id, 'test_cut', 'Th1s154StrongP4$$\/\/0rd'])
+
+test_query(Site, ['bincat', 'bincat.me'])

@@ -15,7 +15,8 @@ class Site < AbstractBase
 
   def users_in_site
     tuple = by_name(@name)
-    print tuple.to_s
-    data_set = DB[:users].select(:name).inner_join(:user_has_accounts, userID: :id).where(siteID: tuple[:id]).all
+    DB[:users].select(:name)
+              .inner_join(:user_has_accounts, userID: :id)
+              .where(siteID: tuple[:id]).all
   end
 end
