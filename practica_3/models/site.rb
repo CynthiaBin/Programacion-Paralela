@@ -2,7 +2,7 @@
 class Site < AbstractBase
   attr_reader :id
 
-  def initialize(name, url)
+  def initialize(name = nil, url = nil)
     @name = name
     @url = url
     super(:sites)
@@ -19,4 +19,5 @@ class Site < AbstractBase
               .inner_join(:user_has_accounts, userID: :id)
               .where(siteID: tuple[:id]).all
   end
+
 end

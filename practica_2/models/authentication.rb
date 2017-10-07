@@ -22,4 +22,8 @@ class Authentication < AbstractBase
                           userID: @u_id,
                           siteID: @s_id)
   end
+
+  def account(user_id, site_id)
+    DB[@table_name].where(userID: user_id, siteID: site_id).first #& (siteID == site_id)).sql
+  end
 end

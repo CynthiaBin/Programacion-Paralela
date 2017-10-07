@@ -1,7 +1,7 @@
-require '.\models\abstract_base.rb'
-require '.\models\user.rb'
-require '.\models\site.rb'
-require '.\models\authentication.rb'
+require_relative './models/abstract_base'
+require './models/user'
+require './models/site'
+require './models/authentication'
 
 def test_model(tested_class, data)
   t = tested_class.new(*data)
@@ -25,6 +25,6 @@ end
 
 u_id = test_model(User, ['Cynthia', 'test', 'pez@bincat.mx'])
 s_id = test_model(Site, ['bincat','bincat.me'])
-test_model(Authentication, [u_id, s_id, 'test_cut', 'Th1s154StrongP4$$\/\/0rd'])
+test_model(Authentication,[ 47, 8, 'test_cut', 'Th1s154StrongP4$$\/\/0rd'])
 
 test_query(Site, ['bincat', 'bincat.me'])

@@ -3,7 +3,7 @@ require 'yaml'
 
 # Base abstract class
 class AbstractBase
-  db_link = YAML.safe_load(File.open('.\config\config.yml'))
+  db_link = YAML.safe_load(File.open('./config/config.yml'))
   db_link_hash = Hash[db_link.map { |k, v| [k.to_sym, v] }]
   DB = Sequel.postgres(database: db_link_hash[:database],
                        user: db_link_hash[:user],

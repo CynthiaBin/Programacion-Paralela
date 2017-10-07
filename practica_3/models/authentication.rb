@@ -5,7 +5,7 @@ require 'bcrypt'
 class Authentication < AbstractBase
   attr_reader :id
 
-  def initialize(u_id, s_id, user_name, password)
+  def initialize(u_id = nil, s_id = nil, user_name = nil, password = nil)
     @u_id = u_id
     @s_id = s_id
     @user_name = user_name
@@ -23,8 +23,7 @@ class Authentication < AbstractBase
                           siteID: @s_id)
   end
 
-  def validate_password(password)
-    data = DB[@table_name]
-    #password == data[:Password]?
+  def account(user_id, site_id)
+    DB[@table_name].where{Sequel.&({userID: user_id},{siteID: site_id})}.first
   end
 end

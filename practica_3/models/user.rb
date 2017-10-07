@@ -2,7 +2,7 @@
 class User < AbstractBase
   attr_reader :id
 
-  def initialize(name, user_name, email)
+  def initialize(name = nil, user_name = nil, email = nil)
     @name = name
     @user_name = user_name
     @email = email
