@@ -8,10 +8,10 @@ require_relative '../models/site'
 require_relative '../models/user'
 require_relative '../controllers/auth'
 require_relative '../controllers/register'
+require_relative '../helpers'
 module Routes
   # Router class
   class Aplication < Grape::API
-
     resource :sites do
       # get /api/sites
       get do
@@ -42,9 +42,9 @@ module Routes
         # get /api/sites/:site/auth
         post :auth do
           site = params[:site]
-          valid_name(params[:site])
-          valid_name(params[:user])
           process_request do
+            valid_name(site)
+            valid_name(params[:user])
             auth = Auth.new(params[:user], site, params[:password])
             auth.validate
           end
@@ -52,9 +52,9 @@ module Routes
 
         # POST /api/sites/:site/register
         post :register do
-          valid_name(params[:site])
-          valid_name(params[:user])
           process_request do
+            valid_name(params[:site])
+            valid_name(params[:user])
             site = params[:site]
             user_name = params[:user]
             password = params[:password]
@@ -62,17 +62,7 @@ module Routes
             register.register_in_site
           end
         end
-
-
       end
     end
-  end
-
-  def valid_name(string)
-    ex = Ant::Exceptions::AntFail.new(
-      'Invalid name',
-      'INVALID_NAME'
-    )
-    raise(ex) unless string.match? (/([a-z]|[0-9]|_)+/i)
   end
 end
