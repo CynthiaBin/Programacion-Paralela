@@ -3,3 +3,4 @@
 doc
 config.yml
 application.log
+node_modules/

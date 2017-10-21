@@ -1,0 +1,132 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Practica 3",
+		"_postman_id": "d2acec1c-5ac7-080f-70f1-f520c8ef4f36",
+		"description": "Auth Server PParalela",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sites",
+			"request": {
+				"url": "{{url}}sites",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer token_test_val",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Users by site",
+			"request": {
+				"url": "{{url}}sites/cutonala/users",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer token_test_val",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Site Save",
+			"request": {
+				"url": "{{url}}sites",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer token_test_val",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Latte",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "http://cafe.mx",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Auth",
+			"request": {
+				"url": "{{url}}sites/cutonal*/auth",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user",
+							"value": "test_cut",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Th1s154StrongP4$$\\/\\/0rd",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"url": "{{url}}sites/bincat/register",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user",
+							"value": "Pumpkin",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "H@lloween",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
