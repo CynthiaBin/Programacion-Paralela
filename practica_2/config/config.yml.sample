@@ -1,4 +1,6 @@
-database: database_name
 adapter: postgres
+database: database_name
 host: localhost
+password: my_secret
+port: 5432
 user: user

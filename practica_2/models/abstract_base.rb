@@ -1,29 +1,24 @@
 require 'sequel'
 require 'yaml'
+require_relative './driver'
 
 # Base abstract class
-class AbstractBase
-  db_link = YAML.safe_load(File.open('./config/config.yml'))
-  db_link_hash = Hash[db_link.map { |k, v| [k.to_sym, v] }]
-  DB = Sequel.postgres(database: db_link_hash[:database],
-                       user: db_link_hash[:user],
-                       host: db_link_hash[:host])
-
+class AbstractBase < Driver
+  attr_reader :table
   def initialize(table_name)
-    @table_name = table_name
-  end
-
-  def by_id(id)
-    data_set = DB[@table_name]
-    data_set.where(id: id).first
+    super()
+    @table = @db[table_name]
   end
 
   def list_all
-    DB[@table_name].all
+    @table.all
   end
 
-  def by_name(name)
-    data_set = DB[@table_name]
-    data_set.where(name: name).first
+  def self.by_id(id)
+    @table.where(id: id).first
+  end
+
+  def self.by_name(name)
+    @table.where(name: name).first
   end
 end

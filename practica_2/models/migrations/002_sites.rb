@@ -10,6 +10,7 @@ Sequel.migration do
       varchar :url
     end
   end
+
   down do
     drop_table(:users)
   end

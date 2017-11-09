@@ -18,4 +18,16 @@ class Site < AbstractBase
     print tuple.to_s
     data_set = DB[:users].select(:name).inner_join(:user_has_accounts, userID: :id).where(siteID: tuple[:id]).all
   end
+
+  def self.by_id(id)
+    table = AbstractBase.table_instance(:site)
+    data = table.where(id: id).first
+    User.new(data[:name], data[:user_name], data[:email], data[:id])
+  end
+
+  def self.by_name(name)
+    table = AbstractBase.table_instance(:site)
+    data = table.where(name: name).first
+    User.new(data[:name], data[:user_name], data[:email], data[:id])
+  end
 end

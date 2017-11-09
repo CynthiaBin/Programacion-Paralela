@@ -7,10 +7,11 @@ Sequel.migration do
     create_table(:users) do
       primary_key :id
       varchar :name
-      varchar :userName
+      varchar :user_name
       varchar :email
     end
   end
+
   down do
     drop_table(:users)
   end
