@@ -1,7 +1,8 @@
-require_relative 'abstract_base.rb'
+
 # Queue class
-class Queue < AbstractBase
-  def initialize(name)
+class MQueue < AbstractBase 
+  attr_reader :name
+  def initialize(name = nil)
     @name = name
     super(:queues)
   end
@@ -10,5 +11,4 @@ class Queue < AbstractBase
     dataset = DB[@table_name]
     @id = dataset.insert(name: @name)
   end
-
 end

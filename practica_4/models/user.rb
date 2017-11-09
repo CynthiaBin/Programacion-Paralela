@@ -1,6 +1,6 @@
 # Model user
 class User < AbstractBase
-  attr_reader :id
+  attr_reader :id, :name
 
   def initialize(name = nil, user_name = nil, email = nil)
     @name = name

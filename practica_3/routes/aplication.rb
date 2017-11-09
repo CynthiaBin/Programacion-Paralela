@@ -15,7 +15,7 @@ module Routes
     resource :sites do
       # get /api/sites
       get do
-        site = Site.new()
+        site = Site.new
         site.list_all
       end
 

@@ -7,7 +7,7 @@ Sequel.migration do
     create_table(:messages) do
       primary_key :id
       text        :content
-      DateTime    :created_at
+      DateTime    :created_at, default: Sequel::CURRENT_TIMESTAMP
       foreign_key :queue_id, :queues
     end
   end
