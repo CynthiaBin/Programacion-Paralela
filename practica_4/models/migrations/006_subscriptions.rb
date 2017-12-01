@@ -2,7 +2,7 @@ require 'sequel'
 
 Sequel.extension :migration
 
-Sequel.migration  do
+Sequel.migration do
   up do
     create_table(:subscriptions) do
       primary_key :id

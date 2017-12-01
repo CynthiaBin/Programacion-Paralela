@@ -63,6 +63,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   bcrypt
   grape
   json
@@ -75,4 +76,4 @@ DEPENDENCIES
   sequel
 
 BUNDLED WITH
-   1.15.4
+   1.16.0

@@ -14,29 +14,22 @@ class Auth
   end
 
   def validate
-    user = User.new
-    site = Site.new
     user_accounts = Authentication.new
-
-    user_info = user.by_name(@name)
-    site = site.by_name(@site_name)
-    account = user_accounts.account(user_info[:id], site[:id])
-
-    ex = Ant::Exceptions::AntFail.new(
-      'Invalid credentials',
-      'INVALID_CREDENTIALS'
-    )
-    raise(ex) unless validate_password(account[:salt], account[:password])
-
+    user = User.by_name(@name)
+    site = Site.by_name(@site_name)
+    ex = Ant::Exceptions::AntFail.new('Invalid credentials',
+                                      'INVALID_CREDENTIALS')
+    raise(ex) if site.nil? || user.nil?
+    account = user_accounts.account(user.id, site.id)
+    raise(ex) unless validate_password(account.salt, account.password)
     config = YAML.safe_load(File.open('./config/config.yml'))
-
     {
-      token: JWT.encode(user_info[:id], config['secret_key'], 'HS256')
+      token: JWT.encode(user.id, config['secret_key'], 'HS256')
     }
   end
 
-  def validate_password(salt, hash)
-    password = BCrypt::Password.new(hash)
+  def validate_password(salt, password)
+    password = BCrypt::Password.new(password)
     password == salt + @password
   end
 end

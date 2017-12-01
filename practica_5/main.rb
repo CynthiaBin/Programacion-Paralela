@@ -4,12 +4,12 @@ require 'ant'
 require_relative 'routes/app'
 
 # Class AuthServer
-class QueuesServer < Grape::API
+class FileServer < Grape::API
   version 'v0', using: :header, vendor: 'PP'
   format :json
   prefix :api
 
   helpers Ant::Response
 
-  mount Routes::App
+  mount Routes::API
 end

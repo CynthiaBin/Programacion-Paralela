@@ -1,26 +1,32 @@
-
+require_relative './abstract_base'
+require_relative './driver'
 
 # Subscription model
 class Subscription < AbstractBase
+  attr_reader :u_id
+  attr_reader :q_id
   attr_reader :id
-  def initialize(u_id = nil, q_id = nil)
+  def initialize(u_id = nil, q_id = nil, id = nil)
     @u_id = u_id
     @q_id = q_id
+    @id = id
     super(:subscriptions)
   end
 
   def register
-    data_set = DB[@table_name]
-    @id = data_set.insert(queue_id: @q_id, user_id: @u_id)
+    @id = @table.insert(queue_id: @q_id, user_id: @u_id)
   end
 
-  def by_uid(u_id)
-    data_set = DB[@table_name]
-    data_set.where(user_id: u_id).first
+  def self.validate(u_id, q_id)
+    table = Driver.table_instance(:subscriptions)
+    data = table.where(user_id: u_id, queue_id: q_id).first
+    unless data.nil?
+      Subscription.new(data[:user_id], data[:queue_id], data[:id])
+    end
   end
 
-  def list_users_in_queue(q_id)
-    data_set = DB[@table_name]
-    data_set.where(queue_id: q_id).all
+  def self.list_users_in_queue(q_id)
+    table = Driver.table_instance(:subscriptions)
+    table.where(queue_id: q_id).all
   end
 end
