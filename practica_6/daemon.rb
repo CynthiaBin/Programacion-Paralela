@@ -9,7 +9,7 @@ class Daemon
   end
 
   def read
-    self.class.get('/api/', @options)
+    self.class.get('/api_internal/', @options)
   end
 
   def run
