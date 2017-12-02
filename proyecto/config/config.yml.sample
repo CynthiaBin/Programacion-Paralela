@@ -1,0 +1,7 @@
+database: database_name
+adapter: postgres
+host: localhost
+user: user
+password:
+port: 5432
+secret_key: IDontKnowWhatIAmDoing
