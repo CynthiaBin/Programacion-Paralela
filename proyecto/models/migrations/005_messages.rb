@@ -9,6 +9,7 @@ Sequel.migration do
       text        :content
       DateTime    :created_at, default: Sequel::CURRENT_TIMESTAMP
       foreign_key :queue_id, :queues
+      foreign_key :user_id, :users
     end
   end
 

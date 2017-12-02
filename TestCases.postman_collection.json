@@ -1,0 +1,1370 @@
+{
+	"info": {
+		"name": "Ruby",
+		"_postman_id": "023a3906-ccd3-613a-9a68-a241498855d5",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Practica_4",
+			"description": "",
+			"item": [
+				{
+					"name": "/api/sites",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/api/sites",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"sites"
+							]
+						},
+						"description": "listar"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/sites",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "CUT",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"value": "http://cut2.udg.mx",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/sites",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"sites"
+							]
+						},
+						"description": "crear, el nombre se manda en el campo 'queue'"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/sites/:site/users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "CUT",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"value": "http://cut.udg.mx",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/sites/CUT/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"sites",
+								"CUT",
+								"users"
+							]
+						},
+						"description": "crear, el nombre se manda en el campo 'queue'"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/sites/:site/auth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "cynthia",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "bincat",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/sites/CUT/auth",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"sites",
+								"CUT",
+								"auth"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "/api/sites/:site/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "cynthia3",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "bincat",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/sites/CUT/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"sites",
+								"CUT",
+								"register"
+							]
+						},
+						"description": "crear, el nombre se manda en el campo 'queue'"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/queues",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/api/queues",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"queues"
+							]
+						},
+						"description": "listar"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/queues",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ColaCUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/queues",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"queues"
+							]
+						},
+						"description": "crear, el nombre se manda en el campo 'queue'"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/:queue/subscribe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "subscriber",
+									"value": "cynthia3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/ColaCUT/subscribe",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ColaCUT",
+								"subscribe"
+							]
+						},
+						"description": "suscribirse, el nombre del suscriptor se manda en el campo subscriber"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/:queue/purge",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "subscriber",
+									"value": "cynthia",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/ColaCUT/purge",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ColaCUT",
+								"purge"
+							]
+						},
+						"description": "marcar mensajes pendientes como leidos."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/:queue",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "content",
+									"value": "Este es un mensaje.4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/ColaCUT",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ColaCUT"
+							]
+						},
+						"description": "escribe un mensaje. El cuerpo de la petición es el contenido del mensaje."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/:queue/:subscriber",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/api/ColaCUT/cynthia2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ColaCUT",
+								"cynthia2"
+							]
+						},
+						"description": "Lee el siguiente mensaje del subscriptor."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Practica_5",
+			"description": "",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/api/test/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"test",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "contents",
+									"value": "test2",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/file/test/test.txt2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"file",
+								"test",
+								"test.txt2"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "CP / MV",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "command",
+									"value": "cp",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "target",
+									"value": "test",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/file/test/test/tes/test.txt4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"file",
+								"test",
+								"test",
+								"tes",
+								"test.txt4"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/api/file/dsdsa",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"file",
+								"dsdsa"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Practica_6",
+			"description": "",
+			"item": [
+				{
+					"name": "Files",
+					"description": "",
+					"item": [
+						{
+							"name": "List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{url_files}}/file_server_name/file/1?hash=true",
+									"host": [
+										"{{url_files}}"
+									],
+									"path": [
+										"file_server_name",
+										"file",
+										"1"
+									],
+									"query": [
+										{
+											"key": "hash",
+											"value": "true",
+											"equals": true
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "contents",
+											"value": "test2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url_files}}/file_server_name/file/test/test.txt",
+									"host": [
+										"{{url_files}}"
+									],
+									"path": [
+										"file_server_name",
+										"file",
+										"test",
+										"test.txt"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "CP / MV",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "command",
+											"value": "cp",
+											"type": "text"
+										},
+										{
+											"key": "target",
+											"value": "file/test/test.txt44",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url_files}}/file_server_name/file/test/test.txt4",
+									"host": [
+										"{{url_files}}"
+									],
+									"path": [
+										"file_server_name",
+										"file",
+										"test",
+										"test.txt4"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{url_files}}/file_server_name/file/test/test.txt44",
+									"host": [
+										"{{url_files}}"
+									],
+									"path": [
+										"file_server_name",
+										"file",
+										"test",
+										"test.txt44"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "API",
+					"description": "",
+					"item": [
+						{
+							"name": "List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{url}}/api/trucha/papas.yomi",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"trucha",
+										"papas.yomi"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "contents",
+											"value": "I <3 Papitas!",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/trucha/papas.yomi",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"trucha",
+										"papas.yomi"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "CP / MV",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "command",
+											"value": "cp",
+											"type": "text"
+										},
+										{
+											"key": "target",
+											"value": "f/ile/test/test.txt44444443332",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/dd/ddd.txt",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"dd",
+										"ddd.txt"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{url}}/api/trucha/papas.yomi",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"trucha",
+										"papas.yomi"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Proyecto",
+			"description": "",
+			"item": [
+				{
+					"name": "Files",
+					"description": "",
+					"item": [
+						{
+							"name": "List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{url_files}}/file_server_name/file/1?hash=true",
+									"host": [
+										"{{url_files}}"
+									],
+									"path": [
+										"file_server_name",
+										"file",
+										"1"
+									],
+									"query": [
+										{
+											"key": "hash",
+											"value": "true",
+											"equals": true
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "contents",
+											"value": "test2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url_files}}/file_server_name/file/test/test.txt",
+									"host": [
+										"{{url_files}}"
+									],
+									"path": [
+										"file_server_name",
+										"file",
+										"test",
+										"test.txt"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "CP / MV",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "command",
+											"value": "cp",
+											"type": "text"
+										},
+										{
+											"key": "target",
+											"value": "file/test/test.txt44",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url_files}}/file_server_name/file/test/test.txt4",
+									"host": [
+										"{{url_files}}"
+									],
+									"path": [
+										"file_server_name",
+										"file",
+										"test",
+										"test.txt4"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{url_files}}/file_server_name/file/test/test.txt44",
+									"host": [
+										"{{url_files}}"
+									],
+									"path": [
+										"file_server_name",
+										"file",
+										"test",
+										"test.txt44"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Indexer",
+					"description": "",
+					"item": [
+						{
+							"name": "List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{url}}/indexer/trucha/papas.yomi",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"indexer",
+										"trucha",
+										"papas.yomi"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "contents",
+											"value": "I <3 Papitas!",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/indexer/trucha/papas.yomi",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"indexer",
+										"trucha",
+										"papas.yomi"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "CP / MV",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "command",
+											"value": "cp",
+											"type": "text"
+										},
+										{
+											"key": "target",
+											"value": "f/ile/test/test.txt44444443332",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/indexer/dd/ddd.txt",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"indexer",
+										"dd",
+										"ddd.txt"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{url}}/indexer/dd/ddd.txt",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"indexer",
+										"dd",
+										"ddd.txt"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "API",
+					"description": "",
+					"item": [
+						{
+							"name": "Users",
+							"description": "",
+							"item": [
+								{
+									"name": "Signup",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "user_name",
+													"value": "adrian",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "password",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/users/user",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"user"
+											]
+										},
+										"description": null
+									},
+									"response": []
+								},
+								{
+									"name": "Login",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "user_name",
+													"value": "adrian",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "password",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/users/login",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"login"
+											]
+										},
+										"description": null
+									},
+									"response": []
+								},
+								{
+									"name": "Change Password",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJub25lIn0.Mw.",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "new_password",
+													"value": "cynthia3",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/users/password",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"password"
+											]
+										},
+										"description": null
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Chats",
+							"description": "",
+							"item": [
+								{
+									"name": "Create Chat 1-1",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJub25lIn0.MQ.",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "user",
+													"value": "cynthia",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/chats/chat",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"chats",
+												"chat"
+											]
+										},
+										"description": null
+									},
+									"response": []
+								},
+								{
+									"name": "Create Chat group",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJub25lIn0.Mw.",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "users",
+													"value": "adrian, adrian3,adrian4",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "name",
+													"value": "SuperChido",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/chats/superchat",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"chats",
+												"superchat"
+											]
+										},
+										"description": null
+									},
+									"response": []
+								},
+								{
+									"name": "List Chats",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJub25lIn0.Mw.",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "users",
+													"value": "adrian, adrian3,adrian4",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "name",
+													"value": "SuperChido",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/chats?token=eyJhbGciOiJub25lIn0.MQ.",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"chats"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJub25lIn0.MQ.",
+													"equals": true
+												}
+											]
+										},
+										"description": null
+									},
+									"response": []
+								},
+								{
+									"name": "Add user Chat group",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJub25lIn0.Mw.",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "user",
+													"value": "adrian5",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/chats/superchat/SuperChido",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"chats",
+												"superchat",
+												"SuperChido"
+											]
+										},
+										"description": null
+									},
+									"response": []
+								},
+								{
+									"name": "Delete user Chat",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJub25lIn0.Mw.",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "user",
+													"value": "adrian5",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/chats/superchat/SuperChido",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"chats",
+												"superchat",
+												"SuperChido"
+											]
+										},
+										"description": null
+									},
+									"response": []
+								},
+								{
+									"name": "Message",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJub25lIn0.MQ.",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "content",
+													"value": "Hola mundo nuevamente!",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/chats/6d73189e-5b41-44e1-8cf2-e20f4feccbb0/message",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"chats",
+												"6d73189e-5b41-44e1-8cf2-e20f4feccbb0",
+												"message"
+											]
+										},
+										"description": null
+									},
+									"response": []
+								},
+								{
+									"name": "Messages",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJub25lIn0.MQ.",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "content",
+													"value": "Hola mundo nuevamente!",
+													"description": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/chats/6d73189e-5b41-44e1-8cf2-e20f4feccbb0/messages?token=eyJhbGciOiJub25lIn0.MQ.&page=1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"chats",
+												"6d73189e-5b41-44e1-8cf2-e20f4feccbb0",
+												"messages"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJub25lIn0.MQ.",
+													"equals": true
+												},
+												{
+													"key": "page",
+													"value": "1",
+													"equals": true
+												}
+											]
+										},
+										"description": null
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	]
+}
