@@ -1,3 +1,4 @@
+require 'date'
 require_relative './abstract_base'
 require_relative './driver'
 
@@ -24,17 +25,36 @@ class FileM < AbstractBase
                         status: @status, updated_at: @updated_at)
   end
 
+  def update_status(status)
+    @table.where(id: @id).update(status: status, updated_at: DateTime.now.to_s)
+  end
+
   def self.by_id(id)
     table = Driver.table_instance(:files)
-    data = table.where(id: id).first
-    FileM.new(data[:path], data[:hash], data[:status],
-              data[:updated_at], data[:id]) unless data.nil?
+    d = table.where(id: id).first
+    FileM.new(d[:path], d[:hash], d[:status], d[:updated_at], d[:id]) unless d.nil?
   end
 
   def self.by_hash(hash)
     table = Driver.table_instance(:files)
-    data = table.where(hash: hash).first
-    FileM.new(data[:path], data[:hash], data[:status],
-              data[:updated_at], data[:id]) unless data.nil?
+    d = table.where(hash: hash).first
+    FileM.new(d[:path], d[:hash], d[:status], d[:updated_at], d[:id]) unless d.nil?
+  end
+
+  def self.by_path(path)
+    table = Driver.table_instance(:files)
+    d = table.where( path: path, status: ['ACTIVE', 'PENDING_COPY']).first
+    FileM.new(d[:path], d[:hash], d[:status], d[:updated_at], d[:id]) unless d.nil?
+  end
+
+  # DELETED ACTIVE PENDING_DELETE PENDING_COPY
+  def self.by_status(status = 'ACTIVE')
+    table = Driver.table_instance(:files)
+    data = table.where(status: status).all
+    servers = []
+    data.each do |d|
+      servers.push(FileM.new(d[:path], d[:hash], d[:status], d[:updated_at], d[:id]))
+    end
+    servers
   end
 end

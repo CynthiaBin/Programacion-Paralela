@@ -2,7 +2,7 @@ require_relative './abstract_base'
 require_relative './driver'
 
 # Model server
-class Server < AbstractBase
+class ServerM < AbstractBase
   attr_reader :id
   attr_reader :uri
 
@@ -19,21 +19,27 @@ class Server < AbstractBase
   def self.by_id(id)
     table = Driver.table_instance(:servers)
     data = table.where(id: id).first
-    Server.new(data[:uri], data[:id]) unless data.nil?
+    ServerM.new(data[:uri], data[:id]) unless data.nil?
   end
 
   def self.by_uri(url)
     table = Driver.table_instance(:servers)
     data = table.where(uri: url).first
-    Server.new(data[:uri], data[:id]) unless data.nil?
+    ServerM.new(data[:uri], data[:id]) unless data.nil?
+  end
+
+  def self.first
+    table = Driver.table_instance(:servers)
+    data = table.first
+    ServerM.new(data[:uri], data[:id]) unless data.nil?
   end
 
   def self.servers
     table = Driver.table_instance(:servers)
-    data = table.where(uri: url).all
+    data = table.all
     servers = []
-    data.foreach do |row|
-      servers.push(Server.new(row[:uri], row[:id]))
+    data.each do |row|
+      servers.push(ServerM.new(row[:uri], row[:id]))
     end
     !servers.empty? ? servers : []
   end
