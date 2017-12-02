@@ -71,7 +71,8 @@ class API < Sinatra::Application
     new_password = params['new_password']
 
     id = decode_id(token)
-    return { status: false, message: 'INVALID_CREDENTIALS' } if id == -1
+    ap id
+    return { status: false, message: 'INVALID_CREDENTIALS' } if id == -1 || !User.id?(id)
 
     user = User.by_id(id)
     user.change_password(new_password)
@@ -87,7 +88,7 @@ class API < Sinatra::Application
     user_n = params['user']
 
     id = decode_id(token)
-    return { status: false, message: 'INVALID_CREDENTIALS' } if id == -1
+    return { status: false, message: 'INVALID_CREDENTIALS' } if id == -1 || !User.id?(id)
 
     user = User.by_id(id)
 
@@ -118,7 +119,7 @@ class API < Sinatra::Application
     users = params['users']
 
     id = decode_id(token)
-    return { status: false, message: 'INVALID_CREDENTIALS' } if id == -1
+    return { status: false, message: 'INVALID_CREDENTIALS' } if id == -1 || !User.id?(id)
 
     user = User.by_id(id)
 
@@ -153,7 +154,7 @@ class API < Sinatra::Application
     user_n = params['user']
 
     id = decode_id(token)
-    return { status: false, message: 'INVALID_CREDENTIALS' } if id == -1
+    return { status: false, message: 'INVALID_CREDENTIALS' } if id == -1 || !User.id?(id)
     return { status: false, message: 'CHAT_NAME_NOT_EXISTS' } unless MQueue.exists?(name)
     return { status: false, message: 'NOT_EXISTS_USER' } unless User.exists?(user_n)
 
@@ -179,7 +180,7 @@ class API < Sinatra::Application
     user_n = params['user']
 
     id = decode_id(token)
-    return { status: false, message: 'INVALID_CREDENTIALS' } if id == -1
+    return { status: false, message: 'INVALID_CREDENTIALS' } if id == -1 || !User.id?(id)
     return { status: false, message: 'CHAT_NAME_NOT_EXISTS' } unless MQueue.exists?(name)
     return { status: false, message: 'NOT_EXISTS_USER' } unless User.exists?(user_n)
 
@@ -200,7 +201,7 @@ class API < Sinatra::Application
     token = params['token']
 
     id = decode_id(token)
-    return { status: false, message: 'INVALID_CREDENTIALS' } if id == -1
+    return { status: false, message: 'INVALID_CREDENTIALS' } if id == -1 || !User.id?(id)
 
     user = User.by_id(id)
 
@@ -219,7 +220,7 @@ class API < Sinatra::Application
     content = params['content']
 
     id = decode_id(token)
-    return { status: false, message: 'INVALID_CREDENTIALS' } if id == -1
+    return { status: false, message: 'INVALID_CREDENTIALS' } if id == -1 || !User.id?(id)
     return { status: false, message: 'CHAT_NAME_NOT_EXISTS' } unless MQueue.exists?(name)
 
     user = User.by_id(id)
@@ -243,7 +244,7 @@ class API < Sinatra::Application
     name = params['name']
 
     id = decode_id(token)
-    return { status: false, message: 'INVALID_CREDENTIALS' } if id == -1
+    return { status: false, message: 'INVALID_CREDENTIALS' } if id == -1 || !User.id?(id)
     return { status: false, message: 'CHAT_NAME_NOT_EXISTS' } unless MQueue.exists?(name)
 
     user = User.by_id(id)

@@ -42,6 +42,11 @@ class User < AbstractBase
     d = table.where(user_name: user_name).first
     !d.nil?
   end
+  def self.id?(id)
+    table = Driver.table_instance(:users)
+    d = table.where(id: id).first
+    !d.nil?
+  end
 
   def change_password(new_password)
     @table.where(id: @id).update(
